@@ -3,7 +3,7 @@ options=str(subprocess.check_output(["ls cv"],shell=True)).split("\n")
 best=3.0
 checkpoint=""
 for option in options:
-	error=float(option[option.rfind("_"):option.rfind(".")])
+	error=float(option[option.rfind("_")+1:option.rfind(".")])
 	if error < best:
 		error=best
 		checkpoint=option
