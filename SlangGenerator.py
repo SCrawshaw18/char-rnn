@@ -15,5 +15,5 @@ word = input("Make up a word and enter it here: ") + ":"
 temperature = input("Set your desired temperature (0-1, 0.5 reccomended): ")
 response = str(subprocess.check_output(['''th sample.lua cv/%s -primetext "%s" -temperature %s'''%(checkpoint,word,temperature)],shell=True))
 response = response[response.rfind(word):]
-response = response[:response.find("\n")]
+response = response[:response.find("\\n")]
 print(response)
