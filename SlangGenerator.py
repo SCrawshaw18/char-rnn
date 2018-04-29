@@ -1,5 +1,5 @@
 import subprocess
-options=str(subprocess.check_output(["ls cv"])).split("\n")
+options=str(subprocess.check_output(["ls cv"],shell=True)).split("\n")
 best=3.0
 checkpoint=""
 for option in options:
