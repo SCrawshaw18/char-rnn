@@ -1,4 +1,5 @@
 import subprocess
+import datetime
 from decimal import Decimal
 options=str(subprocess.check_output(["ls cv"],shell=True)).split("\\n")
 del options[-1]
@@ -19,6 +20,13 @@ response = response[:response.find("\\n")]
 print(response)
 make=input("Write this to html file? (y/n): ")
 if "y" in make:
-	with open("html/template.htm","r") as template:
+	with open("html/urb.htm","r") as template:
 		temp=template.read()
-		print(temp)
+	temp=temp.replace("INPUTTERM123",word)
+	temp=temp.replace("INPUTDEF123",response)
+	now = datetime.datetime.now()
+	short=now.strftime("%b %d")
+	longd=now.strftime("%B %d, %Y")
+	temp=temp.replace("INPUTSHORTDATE123",short)
+	temp=temp.replace("INPUTDATE123",longd)
+	print(temp)
