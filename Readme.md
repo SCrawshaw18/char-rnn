@@ -1,3 +1,6 @@
+# Scott Specific Information
+## How to Run The Extension
+For my extension, I created a python script that simplifies the process of running the network and creating an html document from the result. To run the script, simply run "python3 SlangGenerator.py" and follow the instructions. The extension autoselects the checkpoint with the lowest dropout rate, then walks you through selecting a primeword and temperature. Higher temps create wackier responses, while lower temps lead to more legible responses.
 
 # char-rnn
 
