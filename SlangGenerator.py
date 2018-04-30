@@ -12,9 +12,9 @@ for option in options:
 		error=best
 		checkpoint=option
 print("Checkpoint chosen: %s"%(checkpoint))
-word = input("Make up a word and enter it here: ") + ":"
+word = input("Make up a word and enter it here: ")
 temperature = input("Set your desired temperature (0-1, 0.5 reccomended): ")
-response = str(subprocess.check_output(['''th sample.lua cv/%s -primetext "%s" -temperature %s'''%(checkpoint,word,temperature)],shell=True))
+response = str(subprocess.check_output(['''th sample.lua cv/%s -primetext "%s:" -temperature %s'''%(checkpoint,word,temperature)],shell=True))
 response = response[response.rfind(word):]
 response = response[:response.find("\\n")]
 print(response)
@@ -23,7 +23,7 @@ if "y" in make:
 	with open("html/urb.htm","r") as template:
 		temp=template.read()
 	temp=temp.replace("INPUTTERM123",word)
-	temp=temp.replace("INPUTDEF123",response)
+	temp=temp.replace("INPUTDEF123",response[response.find(":")+2:])
 	now = datetime.datetime.now()
 	short=now.strftime("%b %d")
 	longd=now.strftime("%B %d, %Y")
