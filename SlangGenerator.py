@@ -17,3 +17,8 @@ response = str(subprocess.check_output(['''th sample.lua cv/%s -primetext "%s" -
 response = response[response.rfind(word):]
 response = response[:response.find("\\n")]
 print(response)
+make=input("Write this to html file? (y/n): ")
+if "y" in make:
+	with open("html/template.htm","r") as template:
+		temp=template.read()
+		print(temp)
