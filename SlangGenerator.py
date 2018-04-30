@@ -29,5 +29,5 @@ if "y" in make:
 	longd=now.strftime("%B %d, %Y")
 	temp=temp.replace("INPUTSHORTDATE123",short)
 	temp=temp.replace("INPUTDATE123",longd)
-	with open("backgroundtools/%s.html"%(word),"w") as new:
+	with open("html/%s.html"%(word),"w") as new:
 		new.write(temp)
