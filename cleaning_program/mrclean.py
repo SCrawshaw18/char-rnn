@@ -24,7 +24,7 @@ with open('urban.csv') as csvfile:
             for bad in listbads:
                 if bad.lower() in term.lower() or bad.lower() in description.lower():
                     mean=True
-            if len(description)>2 and term.find("/")==-1 and count % 3 == 0 and not mean and len(description)<150:
+            if len(description)>2 and term.find("/")==-1 and count % 5 == 0 and not mean and len(description)<150:
                 words.append("%s: %s \n"%(term,description))
 file=open("input.txt","w")
 for word in words:
